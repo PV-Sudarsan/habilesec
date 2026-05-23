@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Under Construction</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #020617;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      color: white;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(59,130,246,0.25), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(168,85,247,0.25), transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(236,72,153,0.2), transparent 25%);
+      animation: moveBg 20s linear infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes moveBg {
+      0% {
+        transform: translate(-5%, -5%) rotate(0deg);
+      }
+      100% {
+        transform: translate(5%, 5%) rotate(8deg);
+      }
+    }
+
+    /* Floating Particles */
+    .particles span {
+      position: absolute;
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      animation: float 12s linear infinite;
+      bottom: -100px;
+    }
+
+    .particles span:nth-child(1) {
+      left: 10%;
+      animation-duration: 8s;
+      width: 5px;
+      height: 5px;
+    }
+
+    .particles span:nth-child(2) {
+      left: 25%;
+      animation-duration: 12s;
+    }
+
+    .particles span:nth-child(3) {
+      left: 40%;
+      animation-duration: 10s;
+      width: 7px;
+      height: 7px;
+    }
+
+    .particles span:nth-child(4) {
+      left: 55%;
+      animation-duration: 15s;
+    }
+
+    .particles span:nth-child(5) {
+      left: 70%;
+      animation-duration: 9s;
+      width: 6px;
+      height: 6px;
+    }
+
+    .particles span:nth-child(6) {
+      left: 85%;
+      animation-duration: 13s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(2);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 5;
+      width: 92%;
+      max-width: 950px;
+      padding: 70px 50px;
+      text-align: center;
+      border-radius: 35px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow:
+        0 0 40px rgba(59,130,246,0.2),
+        0 0 80px rgba(168,85,247,0.15),
+        inset 0 0 20px rgba(255,255,255,0.05);
+      animation: cardFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat {
+      0%,100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(59,130,246,0.4);
+    }
+
+    .tagline {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 30px;
+      color: #cbd5e1;
+      font-size: 1rem;
+      box-shadow: 0 0 20px rgba(59,130,246,0.15);
+    }
+
+    h1 {
+      font-size: 5rem;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #ffffff, #60a5fa, #c084fc, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 4s ease infinite alternate;
+    }
+
+    @keyframes glowText {
+      from {
+        filter: drop-shadow(0 0 8px rgba(96,165,250,0.5));
+      }
+      to {
+        filter: drop-shadow(0 0 20px rgba(192,132,252,0.8));
+      }
+    }
+
+    p {
+      max-width: 750px;
+      margin: auto;
+      color: #d1d5db;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .progress-wrapper {
+      width: 100%;
+      max-width: 450px;
+      margin: auto;
+    }
+
+    .progress-bar {
+      height: 16px;
+      width: 100%;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      position: relative;
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.08);
+    }
+
+    .progress-bar::before {
+      content: '';
+      position: absolute;
+      left: -40%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #8b5cf6, #ec4899);
+      border-radius: 999px;
+      animation: loading 2.5s linear infinite;
+      box-shadow: 0 0 25px rgba(139,92,246,0.8);
+    }
+
+    @keyframes loading {
+      0% {
+        left: -40%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    .status {
+      margin-top: 12px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .buttons {
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 16px;
+      color: white;
+      font-weight: 500;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .buttons a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .buttons a:hover::before {
+      left: 100%;
+    }
+
+    .buttons a:hover {
+      transform: translateY(-6px) scale(1.03);
+      background: linear-gradient(90deg, rgba(59,130,246,0.25), rgba(168,85,247,0.25));
+      box-shadow: 0 10px 25px rgba(59,130,246,0.25);
+    }
+
+    .footer {
+      margin-top: 45px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 45px 25px;
+      }
+
+      h1 {
+        font-size: 2.9rem;
+      }
+
+      .logo {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="container">
+
+    <div class="logo">FUTURE VISION</div>
+
+    <div class="tagline">✨ Revolutionary Digital Experience Loading</div>
+
+    <h1>UNDER<br>CONSTRUCTION</h1>
+
+    <p>
+      Something extraordinary is being crafted behind the scenes.
+      We are designing a next-generation digital experience with modern technology,
+      premium design, and powerful performance.
+    </p>
+
+    <div class="progress-wrapper">
+      <div class="progress-bar"></div>
+      <div class="status">Building the future...</div>
+    </div>
+
+    <div class="buttons">
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+    <div class="footer">
+      © 2026 Future Vision Studio — All Rights Reserved
+    </div>
+
+  </div>
+
+</body>
+</html>
